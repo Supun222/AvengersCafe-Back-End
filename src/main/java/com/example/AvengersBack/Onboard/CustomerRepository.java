@@ -1,2 +1,9 @@
-package com.example.AvengersBack.Onboard;public interface CustomerRepository {
+package com.example.AvengersBack.Onboard;
+
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomerRepository extends CrudRepository<customers, Integer> {
+
+
 }
