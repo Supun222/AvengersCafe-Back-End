@@ -23,7 +23,6 @@ public class CustomerRepositoryTests {
         customer.setNic("981011660V");
         customer.setDate("2021-11-01");
         customer.setPhone("0772688805");
-        customer.setTel("0112619660");
         customer.setAddress("xxxx");
         
         customers savedcus = repo.save(customer);

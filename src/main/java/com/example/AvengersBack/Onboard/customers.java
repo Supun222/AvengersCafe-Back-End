@@ -19,9 +19,6 @@ public class customers {
     @Column(nullable = false, unique = false, length = 10)
     private String phone;
 
-    @Column(nullable = true, unique = false, length = 10)
-    private String tel;
-
     @Column(nullable = false, unique = false)
     private String address;
 
@@ -61,13 +58,6 @@ public class customers {
         this.phone = phone;
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
 
     public String getAddress() {
         return address;
@@ -92,7 +82,6 @@ public class customers {
                 ", name='" + name + '\'' +
                 ", nic='" + nic + '\'' +
                 ", phone='" + phone + '\'' +
-                ", tel='" + tel + '\'' +
                 ", address='" + address + '\'' +
                 ", date='" + date + '\'' +
                 '}';
