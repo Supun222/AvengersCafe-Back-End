@@ -8,9 +8,11 @@ import java.awt.desktop.SystemEventListener;
 @Controller
 public class MainController {
 
-    @GetMapping("")
+    @GetMapping("/")
     public String showOnBoardPage(){
-        return "index";
+        return "index.html";
     }
+
+
 
 }
