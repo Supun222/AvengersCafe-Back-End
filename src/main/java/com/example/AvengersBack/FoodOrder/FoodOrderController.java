@@ -88,8 +88,8 @@ public class FoodOrderController {
         }
     }
 
-    @GetMapping(value = "/order/singleorder/{order_id}")
-    public ResponseEntity<List<SingleFoodOrder>> getSignleOrders(@PathVariable("order_id") Integer oid){
+    @GetMapping(value = "/order/singleorder/{cus_id}")
+    public ResponseEntity<List<SingleFoodOrder>> getSignleOrders(@PathVariable("cus_id") Integer oid){
 
         try{
             List<Object[]> singleItem = repo.retriveSingleFoodOrderList(oid);

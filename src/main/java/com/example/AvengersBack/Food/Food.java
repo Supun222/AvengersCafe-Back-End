@@ -8,7 +8,7 @@ public class Food {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "foodorder_id")
+    @Column(name = "food_id")
     private Integer food_id;
 
     @Column(name ="cat_id", nullable = false, unique = false)
