@@ -17,9 +17,9 @@ public class CustomerController {
 
 
     @PostMapping(path = "/customer/save", consumes = {"application/json"})
-    public String saveUser(@RequestBody customers newcus){
+    public int saveUser(@RequestBody customers newcus){
         repo.save(newcus);
-        return "redirect:/Customer";
+        return newcus.getCus_id();
     }
 
 }
