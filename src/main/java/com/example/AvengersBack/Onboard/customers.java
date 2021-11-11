@@ -1,5 +1,8 @@
 package com.example.AvengersBack.Onboard;
 
+import com.example.AvengersBack.CustomerOrder.CustomerOrder;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,6 +11,7 @@ public class customers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     private Integer cus_id;
 
     @Column(nullable = false, unique = false, length = 50)
@@ -25,6 +29,10 @@ public class customers {
     @Column(nullable = false, unique = false)
     private String date;
 
+    //@OneToOne
+    //@JoinColumn(name = "order_id")
+    //@RestResource(path = "customerorders", rel = "customerorders")
+    //private CustomerOrder orders;
 
     public Integer getCus_id() {
         return cus_id;
@@ -57,7 +65,6 @@ public class customers {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
     public String getAddress() {
         return address;

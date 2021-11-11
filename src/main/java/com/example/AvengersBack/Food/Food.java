@@ -8,9 +8,10 @@ public class Food {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "foodorder_id")
     private Integer food_id;
 
-    @Column(name ="cat_id", nullable = false, unique = false, length = 3)
+    @Column(name ="cat_id", nullable = false, unique = false)
     private Integer catId;
 
     @Column(nullable = false, unique = false, length = 25)
