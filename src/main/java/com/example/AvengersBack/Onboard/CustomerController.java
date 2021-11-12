@@ -22,4 +22,5 @@ public class CustomerController {
         return newcus.getCus_id();
     }
 
+
 }

@@ -1,9 +1,6 @@
 package com.example.AvengersBack.CustomerOrder;
 
 import com.example.AvengersBack.DTO.ManagerDisplayOrder;
-import com.example.AvengersBack.DTO.Reports.Reports;
-import com.example.AvengersBack.FoodOrder.FoodOrder;
-import com.example.AvengersBack.FoodOrder.FoodOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @RestController
@@ -76,8 +72,4 @@ public class CustomerOrderController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
-
-
 }

@@ -19,8 +19,8 @@ public class FoodOrder {
     @Column(name = "quantity",  nullable = false, unique = false, length = 3)
     private int quantity;
 
-    @Column(name = "order_id",  nullable = false, unique = false, length = 3)
-    private int orderid;
+    @Column(name = "cus_id",  nullable = false, unique = false, length = 3)
+    private int cusId;
 
     public Integer getFoodorderId() {
         return foodorderId;
@@ -38,19 +38,19 @@ public class FoodOrder {
         this.quantity = quantity;
     }
 
-    public Integer getOrderid() {
-        return orderid;
-    }
-
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
-    }
-
     public int getFoodie() {
         return foodie;
     }
 
     public void setFoodie(int foodie) {
         this.foodie = foodie;
+    }
+
+    public int getCusId() {
+        return cusId;
+    }
+
+    public void setCusId(int cusId) {
+        this.cusId = cusId;
     }
 }

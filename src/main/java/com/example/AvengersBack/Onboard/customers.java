@@ -29,6 +29,8 @@ public class customers {
     @Column(nullable = false, unique = false)
     private String date;
 
+    private String job;
+
     //@OneToOne
     //@JoinColumn(name = "order_id")
     //@RestResource(path = "customerorders", rel = "customerorders")
@@ -92,5 +94,13 @@ public class customers {
                 ", address='" + address + '\'' +
                 ", date='" + date + '\'' +
                 '}';
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
 }

@@ -11,9 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Reports {
 
-    private int totalOrders;
-    private int totalPendings;
-    private int totalCompleted;
-    private int revenue;
-
+    private Integer totalTypeOrder;
 }
