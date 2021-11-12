@@ -1,6 +1,7 @@
 package com.example.AvengersBack.DTO.Reports;
 
 
+import com.example.AvengersBack.CustomerOrder.CustomerOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class ReportsControllers {
     ReportsRepository repo;
     
     @GetMapping(value = "order/reports/{type}")
-    public ResponseEntity<Integer> getTotalRevenue(@PathVariable("type") String type){
+    public ResponseEntity<Integer> getTotalOrderTypes(@PathVariable("type") String type){
         Integer orderTypeCount;
         switch(type){
 
@@ -33,8 +34,12 @@ public class ReportsControllers {
                 orderTypeCount = repo.getRevenue(5);
         }
 
-
-        
         return new ResponseEntity<>(orderTypeCount, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "order/reports/totalrevenue")
+    public ResponseEntity<Float> getTotalRevenue(){
+        Float totalRevenue= repo.sumByTotalPrice();
+        return new ResponseEntity<>(totalRevenue, HttpStatus.OK);
     }
 }

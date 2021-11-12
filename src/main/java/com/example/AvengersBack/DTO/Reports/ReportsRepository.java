@@ -14,4 +14,7 @@ public interface ReportsRepository extends JpaRepository<CustomerOrder, Integer>
     @Query(value = "SELECT COUNT(order_id) AS totalorder FROM `customerorder` WHERE act_id=?1" , nativeQuery = true)
     public Integer getRevenue(Integer actId);
 
+    @Query("SELECT SUM(c.totalPrice) FROM CustomerOrder c WHERE c.actId=5")
+    public Float sumByTotalPrice();
+    //List<Reports> findByTotalOrders(int act_id);
 }

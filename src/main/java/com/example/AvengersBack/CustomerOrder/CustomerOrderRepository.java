@@ -15,5 +15,5 @@ public interface CustomerOrderRepository extends JpaRepository<CustomerOrder, In
     //SELECT COUNT(order_id) AS pending FROM `customerorder` WHERE act_id=4
     //SELECT COUNT(order_id) AS totalorders FROM `customerorder`
 
-    //List<Reports> findByTotalOrders(int act_id);
+
 }
