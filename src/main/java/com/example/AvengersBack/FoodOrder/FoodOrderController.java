@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("api")
+@RequestMapping("/api")
 public class FoodOrderController {
 
     @Autowired
