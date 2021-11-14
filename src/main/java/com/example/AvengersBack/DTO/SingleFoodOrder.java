@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class SingleFoodOrder {
 
     private Integer orderId;
+    private Integer cusId;
     private Integer quantity;
     private String fName;
     private Float price;

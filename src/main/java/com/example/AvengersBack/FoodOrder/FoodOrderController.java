@@ -1,6 +1,8 @@
 package com.example.AvengersBack.FoodOrder;
 
 
+import com.example.AvengersBack.CustomerOrder.CustomerID;
+import com.example.AvengersBack.CustomerOrder.CustomerIDRepository;
 import com.example.AvengersBack.DTO.CashierDisplayOrder;
 import com.example.AvengersBack.DTO.ConfirmFoodOrder;
 import com.example.AvengersBack.DTO.SingleFoodOrder;
@@ -25,6 +27,9 @@ public class FoodOrderController {
     @Autowired
     FoodOrderRepository repo;
 
+    @Autowired
+    CustomerIDRepository Crepo;
+
     @PostMapping(path = "/order/newitem", consumes = {"application/json"})
     public String saveitem(@RequestBody FoodOrder newitem){
         repo.save(newitem);
@@ -44,21 +49,17 @@ public class FoodOrderController {
     }
 
     @GetMapping(value = "/order/cofirmorder")
-    public ResponseEntity<List<ConfirmFoodOrder>> getconfirmorders(){
+    public ResponseEntity<List<CustomerID>> getConfirmOrderCusId(){
 
         try{
-            List<Object[]> chefFoodItems = repo.retrivefoododers();
-            List<ConfirmFoodOrder> chefOrders = new ArrayList<>();
-            chefOrders = chefFoodItems.stream().map(objs->{
-                ConfirmFoodOrder tempConfirMorders = new ConfirmFoodOrder();
-                tempConfirMorders.setCus_id((Integer)objs[0]);
-                tempConfirMorders.setTable_num((Integer)objs[1]);
-                tempConfirMorders.setFname((String)objs[2]);
-                tempConfirMorders.setPretime((Float) objs[3]);
-                tempConfirMorders.setQuanity((Integer)objs[4]);
-                return tempConfirMorders;
+            List<Object[]> cOrderCusId = Crepo.findByActId();
+            List<CustomerID> confirmOrderCusId = new ArrayList<>();
+            confirmOrderCusId = cOrderCusId.stream().map(obj->{
+                CustomerID tempconfirmOrderCusId = new CustomerID();
+                tempconfirmOrderCusId .setCusID((Integer)obj[0]);
+                return tempconfirmOrderCusId;
             }).collect(Collectors.toList());
-            return new ResponseEntity<>(chefOrders, HttpStatus.OK);
+            return new ResponseEntity<>(confirmOrderCusId, HttpStatus.OK);
         }
         catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -97,9 +98,10 @@ public class FoodOrderController {
             singleOrders = singleItem.stream().map(obj->{
                 SingleFoodOrder tempsingleorder = new SingleFoodOrder();
                 tempsingleorder.setOrderId((Integer)obj[0]);
-                tempsingleorder.setQuantity((Integer) obj[1]);
-                tempsingleorder.setFName((String) obj[2]);
-                tempsingleorder.setPrice((Float)obj[3]);
+                tempsingleorder.setCusId((Integer)obj[1]);
+                tempsingleorder.setQuantity((Integer) obj[2]);
+                tempsingleorder.setFName((String) obj[3]);
+                tempsingleorder.setPrice((Float)obj[4]);
                 return tempsingleorder;
             }).collect(Collectors.toList());
             return new ResponseEntity<>(singleOrders, HttpStatus.OK);

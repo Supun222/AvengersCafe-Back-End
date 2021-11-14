@@ -17,7 +17,6 @@ import java.io.Serializable;
 public class ConfirmFoodOrder implements Serializable {
 
     private Integer cus_id;
-    private Integer table_num;
     private String fname;
     private Integer quanity;
     private Float pretime;
