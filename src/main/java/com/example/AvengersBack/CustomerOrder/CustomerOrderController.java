@@ -25,7 +25,7 @@ public class CustomerOrderController {
         return "redirect:/Customer";
     }
 
-    @PutMapping(path = "/order/cashierconfirm/{cus_id}", consumes = {"application/json"})
+    @PutMapping(path = "/order/cashierconfirm/{cus_id}")
     public ResponseEntity<CustomerOrder> cashierconfirm(@PathVariable("cus_id") int id){
 
         try{
@@ -45,7 +45,7 @@ public class CustomerOrderController {
         }
     }
 
-    @PutMapping(path = "/order/chefconfirm/{cus_id}", consumes = {"application/json"})
+    @PutMapping(path = "/order/chefconfirm/{cus_id}")
     public ResponseEntity<CustomerOrder> chefconfirm(@PathVariable("cus_id") int id){
 
         try{
