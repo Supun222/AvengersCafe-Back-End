@@ -64,9 +64,9 @@ public class CustomerOrderController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-//cordova create car com.example.hello HelloWorld
 
-    @GetMapping(value = "/manager/dailyorders")
+
+    @GetMapping(value = "/dashboard/dailyorders")
     public ResponseEntity<List<ManagerDisplayOrder>> getManagerDisplay(){
         try{
             List<Object[]> managerDisplayOrder = repo.retriveCustomerOders();
