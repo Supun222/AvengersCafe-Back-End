@@ -17,7 +17,7 @@ public class ReportsControllers {
     @Autowired
     ReportsRepository repo;
     
-    @GetMapping(value = "order/reports/{type}")
+    @GetMapping(value = "/order/reports/{type}")
     public ResponseEntity<Integer> getTotalOrderTypes(@PathVariable("type") String type){
         Integer orderTypeCount;
         switch(type){
@@ -37,7 +37,7 @@ public class ReportsControllers {
         return new ResponseEntity<>(orderTypeCount, HttpStatus.OK);
     }
 
-    @GetMapping(value = "order/reports/totalrevenue")
+    @GetMapping(value = "/order/reports/totalrevenue")
     public ResponseEntity<Float> getTotalRevenue(){
         Float totalRevenue= repo.sumByTotalPrice();
         return new ResponseEntity<>(totalRevenue, HttpStatus.OK);
