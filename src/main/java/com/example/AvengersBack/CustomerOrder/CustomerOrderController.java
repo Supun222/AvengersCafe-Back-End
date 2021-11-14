@@ -25,28 +25,42 @@ public class CustomerOrderController {
         return "redirect:/Customer";
     }
 
-    @PutMapping(path = "/order/cashierconfirm/{order_id}", consumes = {"application/json"})
-    public ResponseEntity<CustomerOrder> cashierconfirm(@PathVariable("order_id") int id){
-        Optional<CustomerOrder> updateorder = repo.findById(id);
-        if(updateorder.isPresent()){
-            CustomerOrder confirmorder = updateorder.get();
-            confirmorder.setActId(3);
-            return new ResponseEntity<>(repo.save(confirmorder), HttpStatus.OK);
+    @PutMapping(path = "/order/cashierconfirm/{cus_id}", consumes = {"application/json"})
+    public ResponseEntity<CustomerOrder> cashierconfirm(@PathVariable("cus_id") int id){
+
+        try{
+            Optional<CustomerOrder> updateorder = repo.findByCusId(id);
+            if(updateorder.isPresent()){
+                CustomerOrder confirmorder = updateorder.get();
+                confirmorder.setActId(4);
+                return new ResponseEntity<>(repo.save(confirmorder), HttpStatus.OK);
+            }
+            else{
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         }
-        else{
+        catch (Exception e){
+            System.out.println(e.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PutMapping(path = "/order/chefconfirm/{order_id}", consumes = {"application/json"})
-    public ResponseEntity<CustomerOrder> chefconfirm(@PathVariable("order_id") int id){
-        Optional<CustomerOrder> updateorder = repo.findById(id);
-        if(updateorder.isPresent()){
-            CustomerOrder confirmorder = updateorder.get();
-            confirmorder.setActId(5);
-            return new ResponseEntity<>(repo.save(confirmorder), HttpStatus.OK);
+    @PutMapping(path = "/order/chefconfirm/{cus_id}", consumes = {"application/json"})
+    public ResponseEntity<CustomerOrder> chefconfirm(@PathVariable("cus_id") int id){
+
+        try{
+            Optional<CustomerOrder> updateorder = repo.findByCusId(id);
+            if(updateorder.isPresent()){
+                CustomerOrder confirmorder = updateorder.get();
+                confirmorder.setActId(5);
+                return new ResponseEntity<>(repo.save(confirmorder), HttpStatus.OK);
+            }
+            else{
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         }
-        else{
+        catch (Exception e){
+            System.out.println(e.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
