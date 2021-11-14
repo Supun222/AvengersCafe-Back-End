@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerID {
     private Integer cusID;
+    private Integer tableNum;
 }

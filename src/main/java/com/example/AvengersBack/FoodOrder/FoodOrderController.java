@@ -56,7 +56,8 @@ public class FoodOrderController {
             List<CustomerID> confirmOrderCusId = new ArrayList<>();
             confirmOrderCusId = cOrderCusId.stream().map(obj->{
                 CustomerID tempconfirmOrderCusId = new CustomerID();
-                tempconfirmOrderCusId .setCusID((Integer)obj[0]);
+                tempconfirmOrderCusId.setCusID((Integer)obj[0]);
+                tempconfirmOrderCusId.setTableNum((Integer)obj[1]);
                 return tempconfirmOrderCusId;
             }).collect(Collectors.toList());
             return new ResponseEntity<>(confirmOrderCusId, HttpStatus.OK);
@@ -102,6 +103,7 @@ public class FoodOrderController {
                 tempsingleorder.setQuantity((Integer) obj[2]);
                 tempsingleorder.setFName((String) obj[3]);
                 tempsingleorder.setPrice((Float)obj[4]);
+                tempsingleorder.setPrepTime((Float)obj[5]);
                 return tempsingleorder;
             }).collect(Collectors.toList());
             return new ResponseEntity<>(singleOrders, HttpStatus.OK);

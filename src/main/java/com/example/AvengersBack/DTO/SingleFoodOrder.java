@@ -16,4 +16,5 @@ public class SingleFoodOrder {
     private Integer quantity;
     private String fName;
     private Float price;
+    private Float prepTime;
 }
