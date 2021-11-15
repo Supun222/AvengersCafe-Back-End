@@ -25,14 +25,14 @@ public class CustomerOrderController {
         return "redirect:/Customer";
     }
 
-    @PutMapping(path = "/order/cashierconfirm/{cus_id}", consumes = {"application/json"})
+    @PutMapping(path = "/order/cashierconfirm/{cus_id}")
     public ResponseEntity<CustomerOrder> cashierconfirm(@PathVariable("cus_id") int id){
 
         try{
             Optional<CustomerOrder> updateorder = repo.findByCusId(id);
             if(updateorder.isPresent()){
                 CustomerOrder confirmorder = updateorder.get();
-                confirmorder.setActId(4);
+                confirmorder.setActId(3);
                 return new ResponseEntity<>(repo.save(confirmorder), HttpStatus.OK);
             }
             else{
@@ -45,7 +45,7 @@ public class CustomerOrderController {
         }
     }
 
-    @PutMapping(path = "/order/chefconfirm/{cus_id}", consumes = {"application/json"})
+    @PutMapping(path = "/order/chefconfirm/{cus_id}")
     public ResponseEntity<CustomerOrder> chefconfirm(@PathVariable("cus_id") int id){
 
         try{
