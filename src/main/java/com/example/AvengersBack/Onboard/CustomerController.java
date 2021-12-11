@@ -9,18 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost/build/#")
 public class CustomerController {
 
     @Autowired
     CustomerRepository repo;
 
-
     @PostMapping(path = "/customer/save", consumes = {"application/json"})
-    public int saveUser(@RequestBody customers newcus){
+    public int saveUser(@RequestBody customers newcus) {
         repo.save(newcus);
         return newcus.getCus_id();
     }
-
-
 }

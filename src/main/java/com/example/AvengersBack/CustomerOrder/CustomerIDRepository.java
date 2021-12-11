@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface CustomerIDRepository extends JpaRepository<CustomerOrder,Integer> {
 
-    @Query(value = "SELECT c.cusId, c.tableNum FROM CustomerOrder c WHERE c.actId=4")
+    @Query(value = "SELECT c.cusId, c.tableNum FROM CustomerOrder c WHERE c.actId=3")
     List<Object[]> findByActId();
 }

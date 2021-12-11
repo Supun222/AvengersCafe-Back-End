@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>Avengers-Back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>Avengers-Back</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -42,6 +43,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.18</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -58,6 +60,7 @@
 
 
 	<build>
+		<finalName>AvengersCafe-Backend</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
