@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost/build/#")
+@CrossOrigin(origins = "https://thirsty-nobel-63e08c.netlify.app", allowedHeaders = "")
 @RestController
 @RequestMapping("/api")
 public class ReportsControllers {

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "http://localhost/build/#")
+@CrossOrigin(origins = "https://thirsty-nobel-63e08c.netlify.app", allowedHeaders = "")
 @RestController
 @RequestMapping("/api")
 public class FoodController {

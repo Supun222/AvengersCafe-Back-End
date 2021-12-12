@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "http://localhost/build/#")
+@CrossOrigin(origins = "https://thirsty-nobel-63e08c.netlify.app", allowedHeaders = "")
 @RequestMapping("/api")
 public class FoodOrderController {
 
